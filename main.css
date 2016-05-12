@@ -13,6 +13,16 @@
 #artist-image{
   vertical-align: middle;
 }
+#artist-submit{
+}
+#artist-clear{
+  margin-left: 940px;
+}
+#similar-artists{
+}
+#similar-artists-clear{
+  margin-left: 930px;
+}
 /*For Reference*/
 .col-md-7{
   border: 1px solid lightgray;

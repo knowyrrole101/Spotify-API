@@ -15,16 +15,16 @@
 
       <form>
         <div class='form-group'>
-          <label for='artist'>Artist ID</label>
-          <input type='text' class='form-control' id='artist' placeholder='Adele'>
-          <button type='submit' class='btn btn-default' id='artist-submit'>Submit</button>
+          <button type='submit' class='btn btn-primary' id='artist-submit'>Show Artist</button>
         </div>
       </form>
 
 
       <!-- Artist Information -->
       <div class='panel panel-default'>
-        <div class='panel-heading' id='artist-heading'>Artist Name</div>
+        <div class='panel-heading' id='artist-heading'>Artist Name
+          <button type='submit' class='btn btn-danger' id='artist-clear'>Clear</button>
+        </div>
         <div class='panel-body'>
           <div class='row'>
             <div class='col-md-7' id='artist-image'>Hello</div>
@@ -33,13 +33,11 @@
               <h3>Artist Information</h3>
               <h5 id='artist-followers'></h5>
               <a class='btn btn-primary' id='artist-link' href='https://open.spotify.com/artist/4dpARuHxo51G3z768sgnrY'>Open in Spotify</a>
+
               <h3>Related Artists:</h3>
               <div id='related-artists-text'>
-                <a href='https://api.spotify.com/v1/artists/6Q192DXotxtaysaqNPy5yR'>Amy Winehouse</a>,
-                <a href='https://api.spotify.com/v1/artists/6Q192DXotxtaysaqNPy5yR'>Amy Winehouse</a>,
-                <a href='https://api.spotify.com/v1/artists/6Q192DXotxtaysaqNPy5yR'>Amy Winehouse</a>,
-                <a href='https://api.spotify.com/v1/artists/6Q192DXotxtaysaqNPy5yR'>Amy Winehouse</a>,
-                <a href='https://api.spotify.com/v1/artists/6Q192DXotxtaysaqNPy5yR'>Amy Winehouse</a>
+              <a href='https://api.spotify.com/v1/artists/6Q192DXotxtaysaqNPy5yR'>Amy Winehouse</a>,
+
               </div>
               <!-- If not found then -->
               <div class="alert alert-danger" role="alert">Similar Artists Not Found!</div>
@@ -71,10 +69,12 @@
           </div>
           <!--  -->
           <div class='panel panel-default'>
-            <div class='panel-heading'>Similar Artists</div>
+            <div class='panel-heading'>Similar Artists
+              <button type='submit' class='btn btn-danger' id='similar-artists-clear'>Clear</button>
+            </div>
             <div class='panel-body'>
               <div class='row'>
-                <div class='col-md-7'>Hello</div>
+                <div class='col-md-7' id='similar-artists'>Hello</div>
                 <div class='col-md-5'>
                  <div class='container'>
                   <h3>Artist Information</h3>
