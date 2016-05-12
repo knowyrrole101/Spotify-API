@@ -24,21 +24,23 @@
 
       <!-- Artist Information -->
       <div class='panel panel-default'>
-        <div class='panel-heading'>Artist Name</div>
+        <div class='panel-heading' id='artist-heading'>Artist Name</div>
         <div class='panel-body'>
           <div class='row'>
-            <div class='col-md-7'><img src='https://i.scdn.co/image/f8737f6fda048b45efe91f81c2bda2b601ae689c' id='artist-image' alt='artist-image'></div>
+            <div class='col-md-7' id='artist-image'>Hello</div>
             <div class='col-md-5'>
-             <div class='box'>
+             <div class='box' id='box'>
               <h3>Artist Information</h3>
-              <h5>Total Followers: Data</h5>
-              <a class='btn btn-primary' href='https://open.spotify.com/artist/4dpARuHxo51G3z768sgnrY'>Open in Spotify</a>
+              <h5 id='artist-followers'></h5>
+              <a class='btn btn-primary' id='artist-link' href='https://open.spotify.com/artist/4dpARuHxo51G3z768sgnrY'>Open in Spotify</a>
               <h3>Related Artists:</h3>
-              <a href='https://api.spotify.com/v1/artists/6Q192DXotxtaysaqNPy5yR'>Amy Winehouse</a>,
-              <a href='https://api.spotify.com/v1/artists/6Q192DXotxtaysaqNPy5yR'>Amy Winehouse</a>,
-              <a href='https://api.spotify.com/v1/artists/6Q192DXotxtaysaqNPy5yR'>Amy Winehouse</a>,
-              <a href='https://api.spotify.com/v1/artists/6Q192DXotxtaysaqNPy5yR'>Amy Winehouse</a>,
-              <a href='https://api.spotify.com/v1/artists/6Q192DXotxtaysaqNPy5yR'>Amy Winehouse</a>
+              <div id='related-artists-text'>
+                <a href='https://api.spotify.com/v1/artists/6Q192DXotxtaysaqNPy5yR'>Amy Winehouse</a>,
+                <a href='https://api.spotify.com/v1/artists/6Q192DXotxtaysaqNPy5yR'>Amy Winehouse</a>,
+                <a href='https://api.spotify.com/v1/artists/6Q192DXotxtaysaqNPy5yR'>Amy Winehouse</a>,
+                <a href='https://api.spotify.com/v1/artists/6Q192DXotxtaysaqNPy5yR'>Amy Winehouse</a>,
+                <a href='https://api.spotify.com/v1/artists/6Q192DXotxtaysaqNPy5yR'>Amy Winehouse</a>
+              </div>
               <!-- If not found then -->
               <div class="alert alert-danger" role="alert">Similar Artists Not Found!</div>
               <!--  -->

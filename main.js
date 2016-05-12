@@ -1,5 +1,13 @@
 var artist_id = '4dpARuHxo51G3z768sgnrY';
-var response_data;
+var response_data,
+    artist_heading = document.getElementById('artist-heading'),
+    artist_submit = document.getElementById('artist-submit'),
+    artist_link = document.getElementById('artist-link'),
+    artist_image = document.getElementById('artist-image'),
+    artist_followers = document.getElementBy('artist-followers'),
+    related_artists_text = document.getElementById('related-artists-text')
+
+
 
 function get_artist() {
   var request = new XMLHttpRequest();
@@ -17,7 +25,7 @@ function clear_data() {
   document.getElementById('').innerHTML = '';
 }
 
-document.getElementById("artist-submit").addEventListener("click", function(e) {
+artist_submit.addEventListener("click", function(e) {
 	//artist_id = document.getElementById('artist').value;
   console.log(artist_id);
   get_artist();
