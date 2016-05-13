@@ -7,9 +7,9 @@ var response_data,
     artist_image = document.getElementById('artist-image'),
     artist_followers = document.getElementById('artist-followers'),
     artist_heading_related = document.getElementById('artist-heading-related'),
+    artist_top_10_tracks = document.getElementById('top-10-tracks'),
     related_artists_text = document.getElementById('related-artists-text'),
     related_artists_thumbnails = document.getElementById('related-artists-thumbnails')
-
 
 function get_artist() {
   var request = new XMLHttpRequest();
@@ -26,7 +26,7 @@ function get_artist() {
     artist_followers.innerHTML = "Total Followers: " + response_data.followers.total
     artist_link.innerHTML = "<a class='btn btn-success' href='" +response_data.external_urls.spotify + "'role='button'>Open in Spotify</a>"
     get_related_artists();
-    //get_artist_top_ten();
+    get_artist_top_ten();
   };
 };
 
@@ -61,24 +61,22 @@ function get_artist_top_ten() {
   request.send();
   request.onreadystatechange = function() {
     if(request.readyState !=4 || request.status != 200) return;
-    artist_top_tracks = JSON.parse(request.response);
-    console.log(artist_top_tracks);
+    response_data = JSON.parse(request.response);
+    console.log(response_data);
+    artist_top_10_tracks.innerHTML = "<ul class='track-list'>"
+    for(var i=0;i<response_data.tracks.length;i++){
+      artist_top_10_tracks.innerHTML += "<li>"+ response_data.tracks[i].name + "  <a href='"+ response_data.tracks[i].preview_url + "'><img id='play-icon' src='play.png' alt='play-icon'></a></li>"
+    }
+    artist_top_10_tracks.innerHTML += "</ul>"
   }
 }
 
-function get_preview_of_track() {
-  var track = get_artist_top_tracks(id);
+function artist_reset() {
+
 }
 
-function reset() {
-  //event listener on clear click set new variable values
-  response_data,
-  artist_heading,
-  artist_submit,
-  artist_link,
-  artist_image,
-  artist_followers,
-  related_artists_text;
+function related_artist_reset(){
+
 }
 
 artist_submit.addEventListener("click", function(e) {

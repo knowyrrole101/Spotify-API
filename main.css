@@ -35,23 +35,30 @@
 #related-name{
   margin-top: -20px;
 }
-/*For Reference*/
-.col-md-7{
-
-}
-.col-md-5{
-
-}
-.alert-danger {
-  font-size: 18px;
-  text-align: center;
-  width: 300px;
+#top-10-tracks{
+  font-weight: bold;
+  margin-left: 10px;
 }
 #related-artists-text{
   word-wrap: break-word;
   padding-bottom: 10px;
 }
-
+#play-icon{
+  margin-left: 2px; 
+  width: 20px;
+  height: 20px;
+}
+/*For Reference*/
+.col-md-7{
+}
+.col-md-5{
+}
+/**/
+.alert-danger {
+  font-size: 18px;
+  text-align: center;
+  width: 300px;
+}
 .box{
   margin-left: 10px;
   width: 450px;
@@ -62,4 +69,7 @@
 .thumbnail{
   width:200px;
   height:200px;
+}
+.tracks-panel{
+  width: 400px;
 }

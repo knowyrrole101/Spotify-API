@@ -5,21 +5,18 @@
     <meta name="viewport" content="width=device-width" />
     <title>Spotify API</title>
   </head>
-
+  <!-- Main Body -->
   <body>
     <div class='container'>
       <div class='title'>
         <span class='spotify-title'>Spotify API</span>
         <img src='spotify.png' alt='spotify-icon' id='spotify-icon'>
       </div>
-
       <form>
         <div class='form-group'>
           <button type='submit' class='btn btn-success' id='artist-submit'>Show Artist</button>
         </div>
       </form>
-
-
       <!-- Artist Information -->
       <div class='panel panel-default'>
         <div class='panel-heading' id='artist-heading'>Artist Name
@@ -42,57 +39,32 @@
           </div>
          </div>
         </div>
-      <!--  -->
-
-      <div class='panel panel-default'>
+      <!-- Top 10 Tracks Panel -->
+      <div class='panel panel-default tracks-panel'>
         <div class='panel-heading' id='artist-heading-tracks'>
           Top 10 Tracks
           <!-- <button type='submit' class='btn btn-danger' id='artist-clear'>Clear</button> -->
         </div>
         <div class='panel-body'>
           <div class='row'>
-            <div class='col-md-6' id='top-10-tracks'>
-
-              <table class='table table-striped'>
-                <tr>
-                  <th>Song Title</th>
-                  <th>Preview Track</th>
-                </tr>
-                </th>
-                <tr>
-                  <td>Hello World!</td>
-                  <td>Hello World!</td>
-                </tr>
-              </table>
-
+            <div class='col-md-12' id='top-10-tracks'>
             </div>
           </div>
         </div>
       </div>
-
+      <!-- Related Artists Panel -->
       <div class='panel panel-default'>
         <div class='panel-heading' id='artist-heading-related'>
+          Related Artists
         </div>
-
         <div class='panel-body' id='related-artists-thumbnails'>
-
           <div class='row'>
             <div class='col-md-2 image-thumbnail'>
             </div>
           </div>
-
         </div>
       </div>
-
-
-
-
-
-
-
     </div>
-
-
   </body>
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
