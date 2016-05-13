@@ -11,8 +11,6 @@ var response_data,
     related_artists_text = document.getElementById('related-artists-text'),
     related_artists_thumbnails = document.getElementById('related-artists-thumbnails')
 
-
-
 function get_artist() {
   var request = new XMLHttpRequest();
   request.open("GET", "https://api.spotify.com/v1/artists/" + artist_id, true);
@@ -68,27 +66,38 @@ function get_artist_top_ten() {
     console.log(response_data);
     artist_top_10_tracks.innerHTML = "<ul class='track-list'>"
     for(var i=0;i<response_data.tracks.length;i++){
-      artist_top_10_tracks.innerHTML += "<li>"+ response_data.tracks[i].name + "  <a class='play-icon' href='"+ response_data.tracks[i].preview_url + "'><img id='play-icon1' src='play.png' alt='play-icon'></a></li>"
+      artist_top_10_tracks.innerHTML += "<li>"+ response_data.tracks[i].name + "  <a class='play-icon' href='"+ response_data.tracks[i].preview_url +
+       "'><img id='play-icon1' src='play.png' alt='play-icon'></a></li>"
     }
     artist_top_10_tracks.innerHTML += "</ul>"
-    var play_icons = document.getElementsByClassName('play-icon')
-    console.log(play_icons);
-    for(var i=0;i<play_icons.length;i++){
-      play_icons[i].addEventListener("click", function(e){
-        create_media_player();
-        e.preventDefault();
-      });
-    }
+    create_playlist();
   }
 }
 
+function create_playlist() {
+  var play_icons = document.getElementsByClassName('play-icon')
+  //add click listener to all icons
+  for(var i=0;i<play_icons.length;i++){
+    play_icons[i].addEventListener("click", function(e){
+      create_media_player();
+      e.preventDefault();
+    });
+  }
+}
+//Figure out how to get appropriate track number to the response iframe
 function create_media_player() {
+  old_ifrm = document.getElementsByClassName('iframe-media')[0]
   ifrm = document.createElement("IFRAME");
-  ifrm.setAttribute("src", response_data.tracks[0].preview_url);
+  ifrm.setAttribute("src", response_data.tracks[1].preview_url);
   ifrm.setAttribute('class', 'iframe-media');
   ifrm.style.width = 200+"px";
   ifrm.style.height = 100+"px";
-  document.getElementById('panel-body-media-player').appendChild(ifrm);
+  if(old_ifrm!=undefined){
+    document.getElementById('panel-body-media-player').innerHTML = '';
+    document.getElementById('panel-body-media-player').appendChild(ifrm);
+  } else {
+    document.getElementById('panel-body-media-player').appendChild(ifrm);
+  }
 }
 
 function artist_reset() {
