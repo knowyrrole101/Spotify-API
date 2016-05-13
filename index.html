@@ -15,7 +15,7 @@
 
       <form>
         <div class='form-group'>
-          <button type='submit' class='btn btn-primary' id='artist-submit'>Show Artist</button>
+          <button type='submit' class='btn btn-success' id='artist-submit'>Show Artist</button>
         </div>
       </form>
 
@@ -23,73 +23,75 @@
       <!-- Artist Information -->
       <div class='panel panel-default'>
         <div class='panel-heading' id='artist-heading'>Artist Name
-          <button type='submit' class='btn btn-danger' id='artist-clear'>Clear</button>
+          <!--  -->
         </div>
         <div class='panel-body'>
           <div class='row'>
-            <div class='col-md-7' id='artist-image'>Hello</div>
+            <div class='col-md-7' id='artist-image'></div>
             <div class='col-md-5'>
              <div class='box' id='box'>
-              <h3>Artist Information</h3>
-              <h5 id='artist-followers'></h5>
-              <a class='btn btn-primary' id='artist-link' href='https://open.spotify.com/artist/4dpARuHxo51G3z768sgnrY'>Open in Spotify</a>
-
-              <h3>Related Artists:</h3>
-              <div id='related-artists-text'>
-              <a href='https://api.spotify.com/v1/artists/6Q192DXotxtaysaqNPy5yR'>Amy Winehouse</a>,
-
-              </div>
-              <!-- If not found then -->
-              <div class="alert alert-danger" role="alert">Similar Artists Not Found!</div>
-              <!--  -->
+               <h3>Artist Information</h3>
+               <h5 id='artist-followers'></h5>
+               <div id='artist-link'>
+               </div>
+               <h3>Related Artists:</h3>
+               <div id='related-artists-text'>
+               </div>
             </div>
            </div>
           </div>
          </div>
         </div>
-        <!-- Top Artist Tracks -->
-        <div class='panel panel-default'>
-          <div class='panel-heading'>Top 10 Tracks</div>
-          <div class='panel-body'>
-            <div class='row'>
-              <div class='col-md-7'>Hello</div>
-              <div class='col-md-5'>
-               <div class='container'>
-                <h3>Artist Information</h3>
-                <h5>Total Followers: Data</h5>
-                <a class='btn btn-primary' href='https://open.spotify.com/artist/4dpARuHxo51G3z768sgnrY'>Open in Spotify</a>
-                <h3>Related Artists:</h3>
-                 <!-- If not found then -->
-                 <div class="alert alert-danger" role="alert">Similar Artists Not Found!</div>
-                 <!--  -->
-              </div>
-             </div>
+      <!--  -->
+
+      <div class='panel panel-default'>
+        <div class='panel-heading' id='artist-heading-tracks'>
+          Top 10 Tracks
+          <!-- <button type='submit' class='btn btn-danger' id='artist-clear'>Clear</button> -->
+        </div>
+        <div class='panel-body'>
+          <div class='row'>
+            <div class='col-md-6' id='top-10-tracks'>
+
+              <table class='table table-striped'>
+                <tr>
+                  <th>Song Title</th>
+                  <th>Preview Track</th>
+                </tr>
+                </th>
+                <tr>
+                  <td>Hello World!</td>
+                  <td>Hello World!</td>
+                </tr>
+              </table>
+
             </div>
-           </div>
           </div>
-          <!--  -->
-          <div class='panel panel-default'>
-            <div class='panel-heading'>Similar Artists
-              <button type='submit' class='btn btn-danger' id='similar-artists-clear'>Clear</button>
-            </div>
-            <div class='panel-body'>
-              <div class='row'>
-                <div class='col-md-7' id='similar-artists'>Hello</div>
-                <div class='col-md-5'>
-                 <div class='container'>
-                  <h3>Artist Information</h3>
-                  <h5>Total Followers: Data</h5>
-                  <a class='btn btn-primary' href='https://open.spotify.com/artist/4dpARuHxo51G3z768sgnrY'>Open in Spotify</a>
-                  <h3>Related Artists:</h3>
-                   <!-- If not found then -->
-                   <div class="alert alert-danger" role="alert">Similar Artists Not Found!</div>
-                   <!--  -->
-                </div>
-               </div>
-              </div>
-             </div>
-            </div>
+        </div>
       </div>
+
+      <div class='panel panel-default'>
+        <div class='panel-heading' id='artist-heading-related'>
+        </div>
+
+        <div class='panel-body' id='related-artists-thumbnails'>
+
+          <div class='row'>
+            <div class='col-md-2 image-thumbnail'>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+    </div>
+
 
   </body>
   <!-- Bootstrap -->

@@ -16,29 +16,50 @@
 #artist-submit{
 }
 #artist-clear{
-  margin-left: 940px;
+  margin-left: 950px;
+  vertical-align: middle;
 }
 #similar-artists{
 }
 #similar-artists-clear{
   margin-left: 930px;
 }
+#artist-name-link{
+  margin-left: 10px;
+}
+#related-artist-button{
+  margin-left: 40px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+}
+#related-name{
+  margin-top: -20px;
+}
 /*For Reference*/
 .col-md-7{
-  border: 1px solid lightgray;
+
 }
 .col-md-5{
-  border: 1px solid lightgray;
+
 }
 .alert-danger {
   font-size: 18px;
   text-align: center;
   width: 300px;
 }
-.related{
+#related-artists-text{
   word-wrap: break-word;
+  padding-bottom: 10px;
 }
+
 .box{
   margin-left: 10px;
   width: 450px;
+}
+.related-artist-panel{
+  width: 200px;
+}
+.thumbnail{
+  width:200px;
+  height:200px;
 }
