@@ -72,20 +72,27 @@ function get_artist_top_ten() {
     artist_top_10_tracks.innerHTML = "<ul class='track-list'>"
     var id=0;
     for(var i=0;i<response_data.tracks.length;i++){
-      artist_top_10_tracks.innerHTML += "<li>"+ response_data.tracks[i].name + "  <a class='play-icon' id='play-"+id+"' href='"+ response_data.tracks[i].preview_url +
+      artist_top_10_tracks.innerHTML += "<li>"+ response_data.tracks[i].name + "  <a class='play-icon' onclick='create_media_player() 'id='play-"+id+"' href='"+ response_data.tracks[i].preview_url +
        "'><img id='play-icon1' src='play.png' alt='play-icon'></a></li>"
       id++
     }
     artist_top_10_tracks.innerHTML += "</ul>"
-    document.getElementsByClassName('')
+    var play_icons = document.getElementsByClassName('play-icon');
+    for(var j=0;j<play_icons.length;j++){
+      play_icons[j].addEventListener('click', function(e){
+        create_media_player()
+        e.preventDefault();
+      }, true);
+    }
   }
 }
 
 //Figure out how to get appropriate track number to the response iframe
-function create_media_player(track) {
+function create_media_player() {
+
   old_ifrm = document.getElementsByClassName('iframe-media')[0]
   ifrm = document.createElement("IFRAME");
-  ifrm.setAttribute("src", track);
+  ifrm.setAttribute("src",response_data.tracks[0].preview_url);
   ifrm.setAttribute('class', 'iframe-media');
   ifrm.style.width = 200+"px";
   ifrm.style.height = 100+"px";
