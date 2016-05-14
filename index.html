@@ -20,7 +20,8 @@
       </form>
       <!-- Artist Information -->
       <div class='panel panel-default'>
-        <div class='panel-heading' id='artist-heading'>Artist Name
+        <div class='panel-heading' id='artist-heading'><span id='artist-span-heading'>Artist Name</span>
+          <button type='submit' class='btn btn-danger' id='artist-button-clear'>Clear</button>
           <!--  -->
         </div>
         <div class='panel-body'>
@@ -28,11 +29,9 @@
             <div class='col-md-7' id='artist-image'></div>
             <div class='col-md-5'>
              <div class='box' id='box'>
-               <h3>Artist Information</h3>
                <h5 id='artist-followers'></h5>
                <div id='artist-link'>
                </div>
-               <h3>Related Artists:</h3>
                <div id='related-artists-text'>
                </div>
             </div>
@@ -70,7 +69,7 @@
       <!-- Related Artists Panel -->
       <div class='panel panel-default'>
         <div class='panel-heading' id='artist-heading-related'>
-          Related Artists
+          Related Artists <button type='submit' class='btn btn-danger' id='artist-clear'>Clear</button>
         </div>
         <div class='panel-body' id='related-artists-thumbnails'>
           <div class='row'>

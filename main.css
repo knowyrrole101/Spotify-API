@@ -10,6 +10,9 @@
   height: 50px;
   vertical-align:top;
 }
+#artist-button-clear{
+  margin-left: 970px;
+}
 #artist-image{
   vertical-align: middle;
 }

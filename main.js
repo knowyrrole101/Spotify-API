@@ -1,15 +1,20 @@
 var response_data,
     artist_id = '4dpARuHxo51G3z768sgnrY',
+    track,
     box = document.getElementById('box'),
     artist_submit = document.getElementById('artist-submit'),
-    artist_heading = document.getElementById('artist-heading'),
+    artist_heading = document.getElementById('artist-span-heading'),
     artist_link = document.getElementById('artist-link'),
     artist_image = document.getElementById('artist-image'),
     artist_followers = document.getElementById('artist-followers'),
     artist_heading_related = document.getElementById('artist-heading-related'),
     artist_top_10_tracks = document.getElementById('top-10-tracks'),
     related_artists_text = document.getElementById('related-artists-text'),
-    related_artists_thumbnails = document.getElementById('related-artists-thumbnails')
+    related_artists_thumbnails = document.getElementById('related-artists-thumbnails'),
+    artist_clear_main = document.getElementById('artist-button-clear');
+    artist_clear = document.getElementById('artist-clear')
+
+
 
 function get_artist() {
   var request = new XMLHttpRequest();
@@ -21,10 +26,10 @@ function get_artist() {
     response_data = JSON.parse(request.response);
     //DOM CHANGES HERE
     console.log(response_data);
-    artist_heading.innerHTML = response_data.name + "<button type='submit' class='btn btn-danger' id='artist-clear'>Clear</button>"
+
     artist_image.innerHTML = "<img src="+response_data.images[1].url+" alt="+response_data.name+"-image>"
-    artist_followers.innerHTML = "Total Followers: " + response_data.followers.total
-    artist_link.innerHTML = "<a class='btn btn-success' href='" +response_data.external_urls.spotify + "'role='button'>Open in Spotify</a>"
+    artist_followers.innerHTML = "<h2>Artist Information: </h2><h3>Adele</h3><br>Total Followers: " + response_data.followers.total
+    artist_link.innerHTML = "<h3>Related Artists:</h3> <br> <a class='btn btn-success' href='" +response_data.external_urls.spotify + "'role='button'>Open in Spotify</a>"
     get_related_artists();
     get_artist_top_ten();
   };
@@ -48,7 +53,7 @@ function get_related_artists() {
       related_artists_text.innerHTML = "<div class='alert alert-danger' role='alert'>Similar Artists Not Found!</div>"
     }
     for(var i=0;i<response_data.artists.length;i++){
-      artist_heading_related.innerHTML = "Related Artists <button type='submit' class='btn btn-danger' id='artist-clear'>Clear</button>"
+
       related_artists_thumbnails.innerHTML += "<div class='col-md-2 image-thumbnail'> <img class='img-thumbnail thumbnail' src='"+response_data.artists[i].images[0].url+"'><div id='related-name'>"+
       response_data.artists[i].name+"</div></a><a id='related-artist-button' class='btn btn-success btn-xs' href='"+response_data.artists[i].external_urls.spotify+"' role='button'>View Artist</a></div>"
     }
@@ -65,30 +70,22 @@ function get_artist_top_ten() {
     response_data = JSON.parse(request.response);
     console.log(response_data);
     artist_top_10_tracks.innerHTML = "<ul class='track-list'>"
+    var id=0;
     for(var i=0;i<response_data.tracks.length;i++){
-      artist_top_10_tracks.innerHTML += "<li>"+ response_data.tracks[i].name + "  <a class='play-icon' href='"+ response_data.tracks[i].preview_url +
+      artist_top_10_tracks.innerHTML += "<li>"+ response_data.tracks[i].name + "  <a class='play-icon' id='play-"+id+"' href='"+ response_data.tracks[i].preview_url +
        "'><img id='play-icon1' src='play.png' alt='play-icon'></a></li>"
+      id++
     }
     artist_top_10_tracks.innerHTML += "</ul>"
-    create_playlist();
+    document.getElementsByClassName('')
   }
 }
 
-function create_playlist() {
-  var play_icons = document.getElementsByClassName('play-icon')
-  //add click listener to all icons
-  for(var i=0;i<play_icons.length;i++){
-    play_icons[i].addEventListener("click", function(e){
-      create_media_player();
-      e.preventDefault();
-    });
-  }
-}
 //Figure out how to get appropriate track number to the response iframe
-function create_media_player() {
+function create_media_player(track) {
   old_ifrm = document.getElementsByClassName('iframe-media')[0]
   ifrm = document.createElement("IFRAME");
-  ifrm.setAttribute("src", response_data.tracks[1].preview_url);
+  ifrm.setAttribute("src", track);
   ifrm.setAttribute('class', 'iframe-media');
   ifrm.style.width = 200+"px";
   ifrm.style.height = 100+"px";
@@ -100,13 +97,26 @@ function create_media_player() {
   }
 }
 
+
 function artist_reset() {
-
+  artist_image.innerHTML = ''
+  artist_followers.innerHTML = ''
+  artist_link.innerHTML = ''
+  related_artists_text.innerHTML = ''
 }
-
 function related_artist_reset(){
-
+  related_artists_thumbnails.innerHTML = ""
 }
+
+artist_clear_main.addEventListener("click", function(e){
+  artist_reset();
+  e.preventDefault();
+})
+
+artist_clear.addEventListener("click", function(e){
+  related_artist_reset();
+  e.preventDefault();
+});
 
 artist_submit.addEventListener("click", function(e) {
 	//artist_id = document.getElementById('artist').value;
