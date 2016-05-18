@@ -11,7 +11,9 @@ var response_data,
     related_artists_text = document.getElementById('related-artists-text'),
     related_artists_thumbnails = document.getElementById('related-artists-thumbnails'),
     artist_clear_main = document.getElementById('artist-button-clear');
-    artist_clear = document.getElementById('artist-clear')
+    artist_clear = document.getElementById('artist-clear');
+var data;
+
 
 function get_artist() {
   var request = new XMLHttpRequest();
@@ -69,27 +71,38 @@ function get_artist_top_ten() {
     artist_top_10_tracks.innerHTML = "<ul class='track-list'>"
     var id=0;
     for(var i=0;i<response_data.tracks.length;i++){
-      artist_top_10_tracks.innerHTML += "<li>"+ response_data.tracks[i].name + "  <a class='play-icon' id='"+id+ "' href='"+ response_data.tracks[i].preview_url +
+      artist_top_10_tracks.innerHTML += "<li>"+ response_data.tracks[i].name + "  <a class='play-icon' id='" + id + "' href='"+ response_data.tracks[i].preview_url +
        "'><img id='play-icon1' src='play.png' alt='play-icon'></a></li>"
       id++
     }
     artist_top_10_tracks.innerHTML += "</ul>"
     var icons = document.getElementsByClassName('play-icon')
+
+    // function get_index(j) {
+    //   return j + 1;
+    // }
     for(var j=0;j<icons.length;j++){
-      icons[j].addEventListener("click", function(e) {
-        create_media_player();
-        e.preventDefault();
-      }, true)
+      //Closure/Scope Issue here
+      data = icons[j];
+      (function(_td){
+        data.addEventListener("click", function (e){
+          e.preventDefault();
+          console.log(_td.href);
+          create_media_player(_td)
+          // create_media_player(index)
+        });
+      })(data);
     }
+
    }
   }
 
 //Figure out how to get appropriate track number to the response iframe
-function create_media_player() {
+function create_media_player(data) {
   old_ifrm = document.getElementsByClassName('iframe-media')[0]
   ifrm = document.createElement("IFRAME");
   //hard coded this part because every time I would run through loop it would only save the 10 as the dynamic array index value :(
-  ifrm.setAttribute("src",response_data.tracks[0].preview_url);
+  ifrm.setAttribute("src",data.href);
   ifrm.setAttribute("class", 'iframe-media');
   ifrm.style.width = 200+"px";
   ifrm.style.height = 100+"px";
@@ -106,7 +119,7 @@ function artist_reset() {
   artist_followers.innerHTML = ''
   artist_link.innerHTML = ''
   related_artists_text.innerHTML = ''
-}
+}``
 function related_artist_reset(){
   related_artists_thumbnails.innerHTML = ""
 }
