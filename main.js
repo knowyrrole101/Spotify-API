@@ -1,5 +1,6 @@
 var response_data,
-    artist_id = '4dpARuHxo51G3z768sgnrY',
+    vartist_id = '4dpARuHxo51G3z768sgnrY',
+    artist_id= '3TVXtAsR1Inumwj472S9r4',
     box = document.getElementById('box'),
     artist_submit = document.getElementById('artist-submit'),
     artist_heading = document.getElementById('artist-span-heading'),
@@ -23,7 +24,7 @@ function get_artist() {
     if(request.readyState !=4 || request.status != 200) return;
     response_data = JSON.parse(request.response);
     artist_image.innerHTML = "<img src="+response_data.images[1].url+" alt="+response_data.name+"-image>"
-    artist_followers.innerHTML = "<h2>Artist Information: </h2><h3>Adele</h3><br>Total Followers: " + response_data.followers.total +
+    artist_followers.innerHTML = "<h2>Artist Information: </h2><h3>"+response_data.name+"</h3><br>Total Followers: " + response_data.followers.total +
     "<br><br><a class='btn btn-success' href='" +response_data.external_urls.spotify + "'role='button'>Open in Spotify</a>"
     artist_link.innerHTML = "<h3>Related Artists:</h3>"
     get_related_artists();
@@ -84,11 +85,10 @@ function get_artist_top_ten() {
     for(var j=0;j<icons.length;j++){
       //Closure/Scope Issue here
       data = icons[j];
-      (function(_td){
+      (function(index){
         data.addEventListener("click", function (e){
           e.preventDefault();
-          console.log(_td.href);
-          create_media_player(_td)
+          create_media_player(index)
           // create_media_player(index)
         });
       })(data);
